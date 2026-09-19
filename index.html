@@ -100,9 +100,6 @@
             <stop offset="0" stop-color="#7a5a0f"/>
             <stop offset="1" stop-color="#c69a2c"/>
           </radialGradient>
-          <filter id="sombra" x="-20%" y="-10%" width="140%" height="130%">
-            <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000" flood-opacity=".4"/>
-          </filter>
         </defs>
 
         <!-- raios, halo e foco de luz no chão -->
@@ -118,7 +115,7 @@
         <ellipse cx="110" cy="524" rx="62" ry="9" fill="#000" opacity=".28"/>
         <ellipse cx="390" cy="524" rx="62" ry="9" fill="#000" opacity=".28"/>
 
-        <g filter="url(#sombra)">
+        <g>
           <!-- base em degraus arredondados -->
           <ellipse cx="250" cy="512" rx="118" ry="16" fill="url(#goldV)"/>
           <path d="M138 508 Q140 486 250 484 Q360 486 362 508 Q250 522 138 508 Z" fill="url(#prato)"/>
@@ -139,39 +136,42 @@
           <circle cx="250" cy="78" r="9" fill="url(#gold)"/>
           <rect x="244" y="86" width="12" height="6" rx="3" fill="url(#gold)"/>
 
-          <!-- travessa curva com bloco central -->
-          <path d="M44 122 C110 146 176 130 250 106 C324 130 390 146 456 122" fill="none" stroke="url(#goldBeam)" stroke-width="11" stroke-linecap="round"/>
-          <path d="M44 122 C110 146 176 130 250 106 C324 130 390 146 456 122" fill="none" stroke="#fff3c9" stroke-width="2" stroke-linecap="round" opacity=".55" transform="translate(0 -3)"/>
+          <!-- parte móvel: a travessa pivota no centro; cada prato pende na vertical -->
+          <g class="bal-beam">
+            <path d="M44 122 C110 146 176 130 250 106 C324 130 390 146 456 122" fill="none" stroke="url(#goldBeam)" stroke-width="11" stroke-linecap="round"/>
+            <path d="M44 122 C110 146 176 130 250 106 C324 130 390 146 456 122" fill="none" stroke="#fff3c9" stroke-width="2" stroke-linecap="round" opacity=".55" transform="translate(0 -3)"/>
+            <circle cx="44" cy="122" r="7" fill="url(#gold)"/>
+            <circle cx="456" cy="122" r="7" fill="url(#gold)"/>
+
+            <g class="bal-pan bal-pan-l">
+              <circle cx="76" cy="138" r="6" fill="none" stroke="#e4c162" stroke-width="2.6"/>
+              <g stroke="#e4c162" stroke-width="2.6" stroke-linecap="round" fill="none" stroke-dasharray="4 2.4">
+                <path d="M76 144 L22 352"/><path d="M76 144 L76 356"/><path d="M76 144 L130 352"/>
+              </g>
+              <path d="M8 352 Q76 416 144 352 Q76 364 8 352 Z" fill="url(#prato)"/>
+              <ellipse cx="76" cy="352" rx="68" ry="10" fill="#fbeab0"/>
+              <ellipse cx="76" cy="352.5" rx="60" ry="6.5" fill="url(#interior)"/>
+              <ellipse cx="76" cy="352" rx="68" ry="10" fill="none" stroke="#9c7817" stroke-width="1.2"/>
+              <circle cx="22" cy="352" r="3" fill="#fbeab0"/><circle cx="130" cy="352" r="3" fill="#fbeab0"/>
+            </g>
+
+            <g class="bal-pan bal-pan-r">
+              <circle cx="424" cy="138" r="6" fill="none" stroke="#e4c162" stroke-width="2.6"/>
+              <g stroke="#e4c162" stroke-width="2.6" stroke-linecap="round" fill="none" stroke-dasharray="4 2.4">
+                <path d="M424 144 L370 352"/><path d="M424 144 L424 356"/><path d="M424 144 L478 352"/>
+              </g>
+              <path d="M356 352 Q424 416 492 352 Q424 364 356 352 Z" fill="url(#prato)"/>
+              <ellipse cx="424" cy="352" rx="68" ry="10" fill="#fbeab0"/>
+              <ellipse cx="424" cy="352.5" rx="60" ry="6.5" fill="url(#interior)"/>
+              <ellipse cx="424" cy="352" rx="68" ry="10" fill="none" stroke="#9c7817" stroke-width="1.2"/>
+              <circle cx="370" cy="352" r="3" fill="#fbeab0"/><circle cx="478" cy="352" r="3" fill="#fbeab0"/>
+            </g>
+          </g>
+
+          <!-- bloco central (fixo, esconde o pivô) -->
           <rect x="230" y="92" width="40" height="34" rx="4" fill="url(#gold)"/>
           <rect x="230" y="92" width="40" height="34" rx="4" fill="none" stroke="#9c7817" stroke-width="1.2"/>
           <circle cx="250" cy="109" r="4" fill="#7a5a0f"/>
-          <circle cx="44" cy="122" r="7" fill="url(#gold)"/>
-          <circle cx="456" cy="122" r="7" fill="url(#gold)"/>
-
-          <!-- argolas -->
-          <circle cx="76" cy="138" r="6" fill="none" stroke="#e4c162" stroke-width="2.6"/>
-          <circle cx="424" cy="138" r="6" fill="none" stroke="#e4c162" stroke-width="2.6"/>
-
-          <!-- correntes (elos) -->
-          <g stroke="#e4c162" stroke-width="2.6" stroke-linecap="round" fill="none" stroke-dasharray="4 2.4">
-            <path d="M76 144 L22 352"/><path d="M76 144 L76 356"/><path d="M76 144 L130 352"/>
-            <path d="M424 144 L370 352"/><path d="M424 144 L424 356"/><path d="M424 144 L478 352"/>
-          </g>
-
-          <!-- pratos -->
-          <g>
-            <path d="M8 352 Q76 416 144 352 Q76 364 8 352 Z" fill="url(#prato)"/>
-            <ellipse cx="76" cy="352" rx="68" ry="10" fill="#fbeab0"/>
-            <ellipse cx="76" cy="352.5" rx="60" ry="6.5" fill="url(#interior)"/>
-            <ellipse cx="76" cy="352" rx="68" ry="10" fill="none" stroke="#9c7817" stroke-width="1.2"/>
-            <circle cx="22" cy="352" r="3" fill="#fbeab0"/><circle cx="130" cy="352" r="3" fill="#fbeab0"/>
-
-            <path d="M356 352 Q424 416 492 352 Q424 364 356 352 Z" fill="url(#prato)"/>
-            <ellipse cx="424" cy="352" rx="68" ry="10" fill="#fbeab0"/>
-            <ellipse cx="424" cy="352.5" rx="60" ry="6.5" fill="url(#interior)"/>
-            <ellipse cx="424" cy="352" rx="68" ry="10" fill="none" stroke="#9c7817" stroke-width="1.2"/>
-            <circle cx="370" cy="352" r="3" fill="#fbeab0"/><circle cx="478" cy="352" r="3" fill="#fbeab0"/>
-          </g>
         </g>
 
         <!-- brilhos -->
