@@ -115,23 +115,19 @@ html{scroll-behavior:smooth;}
   .hero .stat-row{display:flex; gap:36px; margin-top:56px; flex-wrap:wrap;}
   .hero .stat b{display:block; font-family:"Fraunces",serif; font-size:1.7rem; color:var(--gold-light);}
   .hero .stat span{font-size:.78rem; color:rgba(255,255,255,.6); letter-spacing:.04em;}
-  .hero-art{position:relative; aspect-ratio:500/560; width:100%; max-width:500px; justify-self:center;}
+  .hero-art{position:relative; aspect-ratio:1/1; width:100%; max-width:440px; justify-self:center;}
   .hero-art svg{display:block; animation:balanca-flutua 8s ease-in-out infinite;}
   @keyframes balanca-flutua{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
-  /* Balanço sutil: a travessa inclina ±2,4° em torno do bloco central e cada prato contra-gira em torno da
-     própria argola, por isso continuam pendurados na vertical. Mesmo tempo e curva nos três = ficam em sincronia. */
+  /* Balanço sutil: a travessa inclina ±2,4° em torno do ornamento central e cada prato contra-gira em torno do
+     próprio ponto de suspensão, por isso continuam pendurados na vertical. Mesmo tempo e curva = sincronia. */
   .hero-art .bal-beam, .hero-art .bal-pan{transform-box:view-box;}
-  .hero-art .bal-beam{transform-origin:250px 109px; animation:balanca-inclina 9s ease-in-out infinite;}
-  .hero-art .bal-pan-l{transform-origin:76px 138px; animation:balanca-contra 9s ease-in-out infinite;}
-  .hero-art .bal-pan-r{transform-origin:424px 138px; animation:balanca-contra 9s ease-in-out infinite;}
+  .hero-art .bal-beam{transform-origin:250px 142px; animation:balanca-inclina 9s ease-in-out infinite;}
+  .hero-art .bal-pan-l{transform-origin:78px 160px; animation:balanca-contra 9s ease-in-out infinite;}
+  .hero-art .bal-pan-r{transform-origin:422px 160px; animation:balanca-contra 9s ease-in-out infinite;}
   @keyframes balanca-inclina{0%,100%{transform:rotate(-2.4deg);}50%{transform:rotate(2.4deg);}}
   @keyframes balanca-contra{0%,100%{transform:rotate(2.4deg);}50%{transform:rotate(-2.4deg);}}
-  .hero-art .brilhos circle, .hero-art .brilhos path{animation:balanca-brilho 3.6s ease-in-out infinite;}
-  .hero-art .brilhos > :nth-child(2n){animation-delay:-1.2s;}
-  .hero-art .brilhos > :nth-child(3n){animation-delay:-2.4s;}
-  @keyframes balanca-brilho{0%,100%{opacity:.25;}50%{opacity:1;}}
   @media (prefers-reduced-motion:reduce){
-    .hero-art svg, .hero-art .bal-beam, .hero-art .bal-pan, .hero-art .brilhos circle, .hero-art .brilhos path{animation:none;}
+    .hero-art svg, .hero-art .bal-beam, .hero-art .bal-pan{animation:none;}
   }
 
   /* ---------- Section headings ---------- */
@@ -240,7 +236,7 @@ html{scroll-behavior:smooth;}
     .nav-cta-mobile{display:inline-flex; margin-top:8px;}
     .nav.nav-open nav.links{max-height:420px; opacity:1;}
     .hero .wrap{grid-template-columns:1fr;}
-    .hero-art{justify-self:center; max-width:360px;}
+    .hero-art{justify-self:center; max-width:300px;}
     .sobre-grid{grid-template-columns:1fr;}
     .values{grid-template-columns:1fr 1fr;}
     .area-grid{grid-template-columns:1fr 1fr;}
